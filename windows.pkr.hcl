@@ -1,10 +1,26 @@
+variable "CID" {
+  type      = string
+  sensitive = true
+}
+variable "CSECRET" {
+  type      = string
+  sensitive = true
+}
+variable "TENANTID" {
+  type      = string
+  sensitive = true
+}
+variable "SUBSCRIPTIONID" {
+  type      = string
+  sensitive = true
+}
 source "azure-arm" "windows-2022-trusted" {
-  client_id           = ""
-  client_secret       = ""
+  client_id           = var.CID
+  client_secret       = var.CSECRET
   resource_group_name = "packer"
   storage_account     = "packer-image-builder"
-  subscription_id     = ""
-  tenant_id           = ""
+  subscription_id     = var.SUBSCRIPTIONID
+  tenant_id           = var.TENANTID
 
   capture_container_name = "images"
   capture_name_prefix    = "packer"
