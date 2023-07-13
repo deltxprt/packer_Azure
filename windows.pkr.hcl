@@ -50,7 +50,7 @@ source "azure-arm" "windows-2022-trusted" {
 build {
   sources = ["sources.azure-arm.windows-2022-trusted"]
 
-  provisioner "Powershell" {
+  provisioner "powershell" {
     scripts = [
         "/scripts/reg.ps1",
         "/scripts/features.ps1"
