@@ -26,15 +26,15 @@ jobs:
             id: validate
             run: "packer validate ./windows.pkr.hcl"
             env:
-                CID: ${{ secrets.AZURE_CLIENT_ID }}
-                CSECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-                TENANTID: ${{ secrets.AZURE_TENANT_ID }}
-                SUBSCRIPTIONID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+                PKR_VAR_CID: ${{ secrets.PKR_VAR_AZURE_CLIENT_ID }}
+                PKR_VAR_CSECRET: ${{ secrets.PKR_VAR_AZURE_CLIENT_SECRET }}
+                PKR_VAR_TENANTID: ${{ secrets.PKR_VAR_AZURE_TENANT_ID }}
+                PKR_VAR_SUBSCRIPTIONID: ${{ secrets.PKR_VAR_AZURE_SUBSCRIPTION_ID }}
             
           - name: Run `packer build`
             run: "packer build -color=false -on-error=abort ./windows.pkr.hcl"
             env:
-                CID: ${{ secrets.AZURE_CLIENT_ID }}
-                CSECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-                TENANTID: ${{ secrets.AZURE_TENANT_ID }}
-                SUBSCRIPTIONID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+                PKR_VAR_CID: ${{ secrets.PKR_VAR_AZURE_CLIENT_ID }}
+                PKR_VAR_CSECRET: ${{ secrets.PKR_VAR_AZURE_CLIENT_SECRET }}
+                PKR_VAR_TENANTID: ${{ secrets.PKR_VAR_AZURE_TENANT_ID }}
+                PKR_VAR_SUBSCRIPTIONID: ${{ secrets.PKR_VAR_AZURE_SUBSCRIPTION_ID }}
