@@ -1,3 +1,29 @@
+packer {
+    required_plugins {
+        azure = {
+            version = ">=1.4.2"
+            source = "github.com/hashicorp/azure"
+        }
+    }
+}
+
+variable "CID" {
+  type      = string
+  sensitive = true
+}
+variable "CSECRET" {
+  type      = string
+  sensitive = true
+}
+variable "TENANTID" {
+  type      = string
+  sensitive = true
+}
+variable "SUBSCRIPTIONID" {
+  type      = string
+  sensitive = true
+}
+
 source "azure-arm" "windows-2022-trusted" {
   
   azure_tags = {
