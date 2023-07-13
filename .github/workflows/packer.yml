@@ -25,6 +25,11 @@ jobs:
           - name: Run `packer validate`
             id: validate
             run: "packer validate ./windows.pkr.hcl"
+            env:
+                CID: ${{ secrets.AZURE_CLIENT_ID }}
+                CSECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+                TENANTID: ${{ secrets.AZURE_TENANT_ID }}
+                SUBSCRIPTIONID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
             
           - name: Run `packer build`
             run: "packer build -color=false -on-error=abort ./windows.pkr.hcl"
