@@ -58,8 +58,8 @@ source "azure-arm" "windows-2022-trusted" {
     resource_group = "packer"
     replication_regions = ["canadacentral"]
   }
-  #managed_image_name = "Windows-Server-2022-DCATLG2"
-  #managed_image_resource_group_name = "packer"
+  managed_image_name = "Windows-Server-2022-DCATLG2"
+  managed_image_resource_group_name = "packer"
   
 }
 
