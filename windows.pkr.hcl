@@ -30,12 +30,12 @@ source "azure-arm" "windows-2022-trusted" {
     OS = "2022x"
   }  
   
-  client_id           = ${var.CID}
-  client_secret       = ${var.CSECRET}
+  client_id           = var.CID
+  client_secret       = var.CSECRET
   resource_group_name = "packer"
   storage_account     = "packer-image-builder"
-  subscription_id     = ${var.SUBSCRIPTIONID}
-  tenant_id           = ${var.TENANTID}
+  subscription_id     = var.SUBSCRIPTIONID
+  tenant_id           = var.TENANTID
 
   capture_container_name = "images"
   capture_name_prefix    = "packer"
