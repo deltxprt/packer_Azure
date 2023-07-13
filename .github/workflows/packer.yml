@@ -2,8 +2,8 @@ name: packer Azure
 
 on:
   push:
-      branches:
-          - main
+    branches:
+      - main
 
 jobs:
   packer:
