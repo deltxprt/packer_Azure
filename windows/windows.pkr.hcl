@@ -1,29 +1,3 @@
-packer {
-    required_plugins {
-        azure = {
-            version = ">=1.4.2"
-            source = "github.com/hashicorp/azure"
-        }
-    }
-}
-
-variable "CID" {
-  type      = string
-  sensitive = true
-}
-variable "CSECRET" {
-  type      = string
-  sensitive = true
-}
-variable "TENANTID" {
-  type      = string
-  sensitive = true
-}
-variable "SUBSCRIPTIONID" {
-  type      = string
-  sensitive = true
-}
-
 source "azure-arm" "windows-2022-trusted" {
   
   azure_tags = {
@@ -52,10 +26,11 @@ source "azure-arm" "windows-2022-trusted" {
   vtpm_enabled        = true
 
   shared_image_gallery_destination {
-    gallery_name   = "gallery_cace"
-    image_name     = "Windows-Server-2022-DCATLG2"
-    image_version  = "0.0.1"
-    resource_group = "packer"
+    subscription_id     = var.SUBSCRIPTIONID
+    gallery_name        = "gallery_cace"
+    image_name          = "Windows-Server-2022-DCATLG2"
+    image_version       = "0.0.1"
+    resource_group      = "packer"
     replication_regions = ["canadacentral"]
   }
   #managed_image_name = "Windows-Server-2022-DCATLG2"

@@ -24,7 +24,7 @@ jobs:
       
           - name: Run `packer validate`
             id: validate
-            run: "packer validate ./windows.pkr.hcl"
+            run: "packer validate /windows"
             env:
                 PKR_VAR_CID: ${{ secrets.PKR_VAR_AZURE_CLIENT_ID }}
                 PKR_VAR_CSECRET: ${{ secrets.PKR_VAR_AZURE_CLIENT_SECRET }}
@@ -32,7 +32,7 @@ jobs:
                 PKR_VAR_SUBSCRIPTIONID: ${{ secrets.PKR_VAR_AZURE_SUBSCRIPTION_ID }}
             
           - name: Run `packer build`
-            run: "packer build -color=false -on-error=abort ./windows.pkr.hcl"
+            run: "packer build -color=false -on-error=abort /windows"
             env:
                 PKR_VAR_CID: ${{ secrets.PKR_VAR_AZURE_CLIENT_ID }}
                 PKR_VAR_CSECRET: ${{ secrets.PKR_VAR_AZURE_CLIENT_SECRET }}
