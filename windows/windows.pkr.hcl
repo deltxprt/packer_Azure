@@ -50,8 +50,8 @@ build {
 
   provisioner "powershell" {
     scripts = [
-        "/scripts/reg.ps1",
-        "/scripts/features.ps1"
+        "./scripts/reg.ps1",
+        "./scripts/features.ps1"
     ]
   }
 }
