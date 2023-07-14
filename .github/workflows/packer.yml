@@ -38,3 +38,6 @@ jobs:
                 PKR_VAR_CSECRET: ${{ secrets.PKR_VAR_AZURE_CLIENT_SECRET }}
                 PKR_VAR_TENANTID: ${{ secrets.PKR_VAR_AZURE_TENANT_ID }}
                 PKR_VAR_SUBSCRIPTIONID: ${{ secrets.PKR_VAR_AZURE_SUBSCRIPTION_ID }}
+                HCP_CLIENT_ID: ${{ secrets.HCP_CLIENT_ID }}
+                HCP_CLIENT_SECRET: ${{ secrets.HCP_CLIENT_SECRET }}
+                HCP_PACKER_BUILD_FINGERPRINT: "run.id.${{ github.run_id }}.run.attempt.${{ github.run_attempt }}"
