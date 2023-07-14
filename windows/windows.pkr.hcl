@@ -47,7 +47,7 @@ source "azure-arm" "windows-2022-trusted" {
   vm_size             = "Standard_D2as_v5"
   winrm_insecure      = true
   winrm_timeout       = "7m"
-  winrm_use_ssl       = false
+  winrm_use_ssl       = true
   winrm_username      = "packer"
 }
 
