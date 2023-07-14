@@ -5,7 +5,7 @@ source "azure-arm" "windows-2022-trusted" {
   }  
 
   build_key_vault_name      = "kv01-packer"
-  build_resource_group_name = "packer"
+  #build_resource_group_name = "packer"
   client_id                 = "${var.CID}"
   client_secret             = "${var.CSECRET}"
   communicator              = "winrm"
