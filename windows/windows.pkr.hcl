@@ -3,30 +3,31 @@ source "azure-arm" "windows-2022-trusted" {
   azure_tags = {
     OS = "2022x"
   }  
-  
-  client_id           = var.CID
-  client_secret       = var.CSECRET
-  resource_group_name = "packer"
-  storage_account     = "packer-image-builder"
-  subscription_id     = var.SUBSCRIPTIONID
-  tenant_id           = var.TENANTID
 
+  build_key_vault_name      = "kv01-packer"
+  build_resource_group_name = "packer"
+  client_id                 = "${var.CID}"
+  client_secret             = "${var.CSECRET}"
+  communicator              = "winrm"
+
+  location            = "canadacentral"
   #capture_container_name = "images"
   #capture_name_prefix    = "packer"
 
   image_publisher     = "MicrosoftWindowsServer"
   image_offer         = "windowsserver"
   image_sku           = "2022-datacenter-azure-edition"
-  location            = "canadacentral"
-  vm_size             = "Standard_D2as_v5"
 
   os_type             = "Windows"
 
   secure_boot_enabled = true
   vtpm_enabled        = true
 
+  keep_os_disk      = false
+  temp_os_disk_name = "packer-temp-os-disk"
+
   shared_image_gallery_destination {
-    subscription        = var.SUBSCRIPTIONID
+    subscription        = "${var.SUBSCRIPTIONID}"
     gallery_name        = "gallery_cace"
     image_name          = "Windows-Server-2022-DCATLG2"
     image_version       = "0.0.1"
@@ -35,7 +36,13 @@ source "azure-arm" "windows-2022-trusted" {
   }
   #managed_image_name = "Windows-Server-2022-DCATLG2"
   #managed_image_resource_group_name = "packer"
-  
+  subscription_id     = "${var.SUBSCRIPTIONID}"
+  tenant_id           = "${var.TENANTID}"
+  vm_size             = "Standard_D2as_v5"
+  winrm_insecure      = true
+  winrm_timeout       = "7m"
+  winrm_use_ssl       = true
+  winrm_username      = "packer"
 }
 
 build {
