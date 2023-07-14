@@ -25,8 +25,8 @@ source "azure-arm" "windows-2022-trusted" {
   secure_boot_enabled = true
   vtpm_enabled        = true
 
-  virtual_network_name = "Lab-vnet"
-  virtual_network_subnet_name = "default"
+  virtual_network_name = "vnet01-cace"
+  virtual_network_subnet_name = "Default"
   virtual_network_resource_group_name = "Lab"
 
   keep_os_disk      = false
