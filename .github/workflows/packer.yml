@@ -7,7 +7,7 @@ on:
 
 jobs:
   packer:
-      runs-on: windows-latest
+      runs-on: Windows
       steps:
           - name: Checkout
             uses: actions/checkout@v3
