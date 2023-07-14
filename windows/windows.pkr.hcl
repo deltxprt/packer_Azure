@@ -4,8 +4,10 @@ source "azure-arm" "windows-2022-trusted" {
     OS = "2022x"
   }  
 
-  build_key_vault_name      = "kv01-packer"
+  #build_key_vault_name      = "kv01-packer"
+  build_key_vault_sku       = "Standard"
   #build_resource_group_name = "packer"
+  temp_resource_group_name  = "rg-packer-temp"
   client_id                 = "${var.CID}"
   client_secret             = "${var.CSECRET}"
   communicator              = "winrm"
