@@ -26,7 +26,7 @@ source "azure-arm" "windows-2022-trusted" {
   vtpm_enabled        = true
 
   shared_image_gallery_destination {
-    subscription_id     = var.SUBSCRIPTIONID
+    subscription        = var.SUBSCRIPTIONID
     gallery_name        = "gallery_cace"
     image_name          = "Windows-Server-2022-DCATLG2"
     image_version       = "0.0.1"
