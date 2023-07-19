@@ -10,6 +10,12 @@ $registries = @(
         key    = "key1"
         value  = "1"
         action = "create"
+    },
+    [pscustomobject]@{
+        path   = "HKLM:\SOFTWARE\folder1"
+        key    = "key2"
+        value  = "2"
+        action = "create"
     }
 )
 
@@ -47,4 +53,5 @@ $registries | ForEach-Object {
         action = $_.action
     }
     update-registry @param
+    Write-Host "$($_.action) $($_.key) in $($_.path) with value: $($_.value)"
 }

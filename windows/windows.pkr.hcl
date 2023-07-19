@@ -16,9 +16,17 @@ source "azure-arm" "windows-2022-trusted" {
   #capture_container_name = "images"
   #capture_name_prefix    = "packer"
 
-  image_publisher     = "MicrosoftWindowsServer"
-  image_offer         = "windowsserver"
-  image_sku           = "2022-datacenter-azure-edition"
+  #image_publisher     = "MicrosoftWindowsServer"
+  #image_offer         = "windowsserver"
+  #image_sku           = "2022-datacenter-azure-edition"
+
+  shared_image_gallery {
+    subscription   = "${var.SUBSCRIPTIONID}"
+    resource_group = "packer"
+    gallery_name   = "gallery-cace"
+    image_name     = "Windows-Server-2022-DCATLG2"
+    image_version  = "0.0.1"
+  }
 
   os_type             = "Windows"
 
@@ -36,7 +44,7 @@ source "azure-arm" "windows-2022-trusted" {
     subscription        = "${var.SUBSCRIPTIONID}"
     gallery_name        = "gallery_cace"
     image_name          = "Windows-Server-2022-DCATLG2"
-    image_version       = "0.0.1"
+    image_version       = "0.0.2"
     resource_group      = "packer"
     replication_regions = ["canadacentral"]
   }

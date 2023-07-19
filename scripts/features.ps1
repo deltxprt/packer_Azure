@@ -16,10 +16,10 @@ function Set-WindowsFeatures{
     )
     switch ($feature["action"]) {
         "enable" {
-            Enable-WindowsFeature $feature["name"]
+            Enable-WindowsOptionalFeature $feature["name"]
         }
         "disable" {
-            Disable-WindowsFeature $feature["name"]
+            Disable-WindowsOptionalFeature $feature["name"]
         }
     }
 }
