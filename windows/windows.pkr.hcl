@@ -23,7 +23,7 @@ source "azure-arm" "windows-2022-trusted" {
   shared_image_gallery {
     subscription   = "${var.SUBSCRIPTIONID}"
     resource_group = "packer"
-    gallery_name   = "gallery-cace"
+    gallery_name   = "gallery_cace"
     image_name     = "Windows-Server-2022-DCATLG2"
     image_version  = "0.0.1"
   }
