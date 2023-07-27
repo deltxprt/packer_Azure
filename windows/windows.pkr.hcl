@@ -25,7 +25,7 @@ source "azure-arm" "windows-2022-trusted" {
     resource_group = "packer"
     gallery_name   = "gallery_cace"
     image_name     = "Windows-Server-2022-DCATLG2"
-    image_version  = "0.0.1"
+    image_version  = "0.0.2"
   }
 
   os_type             = "Windows"
@@ -44,7 +44,7 @@ source "azure-arm" "windows-2022-trusted" {
     subscription        = "${var.SUBSCRIPTIONID}"
     gallery_name        = "gallery_cace"
     image_name          = "Windows-Server-2022-DCATLG2"
-    image_version       = "0.0.2"
+    image_version       = "0.0.3"
     resource_group      = "packer"
     replication_regions = ["canadacentral"]
   }

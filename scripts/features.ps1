@@ -4,7 +4,7 @@ $features = @(
         "action"="disable"
     }
     @{
-        "name"= "DirectPlay"
+        "name"= "File-Services"
         "action"="enable"
     }
 )
@@ -16,15 +16,15 @@ function Set-WindowsFeatures{
     )
     switch ($feature["action"]) {
         "enable" {
-            Enable-WindowsOptionalFeature $feature["name"]
+            Enable-WindowsOptionalFeature -FeatureName $feature["name"] -Online
         }
         "disable" {
-            Disable-WindowsOptionalFeature $feature["name"]
+            Disable-WindowsOptionalFeature -FeatureName $feature["name"] -Online
         }
     }
 }
 
 foreach ($feature in $features) {
-    Set-WindowsFeatures $feature
+    Set-WindowsOptionalFeature $feature
     Write-Host "Feature $($feature["name"]) $($feature["action"])"
 }

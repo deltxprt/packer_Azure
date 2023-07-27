@@ -32,8 +32,10 @@ function update-registry {
             $result = Set-ItemProperty -Path $path -Name $key -Value $value
         } 
         "create" {
-            if($value){$result = New-ItemProperty -path $path -Name $key -Value $value -PropertyType "DWORD"}
-            else{$result = New-Item -Path $path -Name $key -ItemType Directory}
+            $Exist = Test-Path "$path\$value"
+            if($value -and !$Exist){$result = New-ItemProperty -path $path -Name $key -Value $value -PropertyType "DWORD"}
+            elseif($Exist -and $value){$result = Set-ItemProperty -Path $path -Name $key -Value $value}
+            elseif($exist){$result = New-Item -Path $path -Name $key -ItemType Directory}
             
         }
         "delete" {
