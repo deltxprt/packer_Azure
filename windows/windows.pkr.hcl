@@ -12,7 +12,7 @@ source "azure-arm" "windows-2022-trusted" {
   client_secret             = "${var.CSECRET}"
   communicator              = "winrm"
 
-  location            = "canadacentral"
+  #location            = "canadacentral"
   #capture_container_name = "images"
   #capture_name_prefix    = "packer"
 
