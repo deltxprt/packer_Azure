@@ -37,9 +37,6 @@ source "azure-arm" "windows-2022-trusted" {
   virtual_network_subnet_name = "Default"
   virtual_network_resource_group_name = "Lab"
 
-  keep_os_disk      = false
-  temp_os_disk_name = "packer-temp-os-disk"
-
   shared_image_gallery_destination {
     subscription        = "${var.SUBSCRIPTIONID}"
     gallery_name        = "gallery_cace"
