@@ -25,6 +25,6 @@ function Set-WindowsFeatures{
 }
 
 foreach ($feature in $features) {
-    Set-WindowsOptionalFeature $feature
+    Set-WindowsFeatures $feature
     Write-Host "Feature $($feature["name"]) $($feature["action"])"
 }
