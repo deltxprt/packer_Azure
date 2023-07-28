@@ -32,7 +32,7 @@ jobs:
                 PKR_VAR_SUBSCRIPTIONID: ${{ secrets.PKR_VAR_AZURE_SUBSCRIPTION_ID }}
             
           - name: Run `packer build`
-            run: "packer build -color=false -on-error=abort windows/"
+            run: "packer build -color=false windows/"
             env:
                 PKR_VAR_CID: ${{ secrets.PKR_VAR_AZURE_CLIENT_ID }}
                 PKR_VAR_CSECRET: ${{ secrets.PKR_VAR_AZURE_CLIENT_SECRET }}
