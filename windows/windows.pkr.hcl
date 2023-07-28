@@ -32,6 +32,7 @@ source "azure-arm" "windows-2022-trusted" {
 
   secure_boot_enabled = true
   vtpm_enabled        = true
+  encryption_at_host  = false
 
   virtual_network_name = "vnet01-cace"
   virtual_network_subnet_name = "Default"
